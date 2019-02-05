@@ -38,5 +38,18 @@ When you get the gallery object back. You'll have the following API methods (GET
 An example for getting all the workflows/apps in your **subscription** in your gallery:
 
 ```javascript
---
+async function getWorkflows() {
+  const response = await createGallery().getSubscriptionWorkflows();
+  const data = await response.json();
+  // do something with the data
+  console.log(data);
+}
+```
+
+I've been using this wrapper in combination with Parcel as a build tool and Parcel doesn't really play nice with async/await - you'll get some error messages in your browser console. One way of fixing it is by adding this line to your package.json file:
+
+```javascript
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 ```
