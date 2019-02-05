@@ -28,13 +28,12 @@ You can grab the Location, Key and Secret from the API in your Alteryx Gallery b
 
 When you get the gallery object back. You'll have the following API methods (GET / POST) available to you:
 
-- Subscriptions (GET): finds workflows in a subscription - getSubscriptionWorkflows()
-- App Questions (GET): returns the questions for the given Analytic App - getAppQuestions(id)
-- Queue an app execution job (POST): Runs the app/workflow and returns the ID of the Job - executeWorkflow(id)
-- Analytic App Job (GET): Returns the jobs for the given Alteryx Analtytics App. - getJobsByWorkflow(id)
-- getJob: Retrieves the job and its current state - getJob(id)
-- Job Output (GET): Retrieves the job and its current state - getJob(id)
-- Output: Returns output for a given job - getOutputFileURL(jobId, outputId, format)
+- Subscriptions (GET): finds workflows in a subscription - **getSubscriptionWorkflows()**
+- App Questions (GET): returns the questions for the given Analytic App - **getAppQuestions(id)**
+- Queue an app execution job (POST): Runs the app/workflow and returns the ID of the Job - **executeWorkflow(id)**
+- Analytic App Job (GET): Returns the jobs for the given Alteryx Analtytics App. - **getJobsByWorkflow(id)**
+- getJob (GET): Retrieves the job and its current state - **getJob(id)**
+- Output (GET): Returns output for a given job - **getOutputFileURL(jobId, outputId, format)**
 
 An example for getting all the workflows/apps in your **subscription** in your gallery:
 
