@@ -53,6 +53,7 @@ class Gallery {
   }
 
   async getJobsByWorkflow(id) {
+    const type = "GET";
     const url = `${this.apiLocation}/workflows/${id}/jobs/?`;
     const params = buildOauthParams(this.apiKey);
     const signature = generateSignature(type, url, params, this.apiSecret);
@@ -65,6 +66,7 @@ class Gallery {
   }
 
   async getJob(id) {
+    const type = "GET";
     const url = `${this.apiLocation}/jobs/${id}/?`;
     const params = buildOauthParams(this.apiKey);
     const signature = generateSignature(type, url, params, this.apiSecret);
@@ -77,6 +79,7 @@ class Gallery {
   }
 
   async getOutputFileURL(jobId, outputId, format) {
+    const type = "GET";
     const url = `${this.apiLocation}/jobs/${jobId}/output/${outputId}/?`;
     const params = buildOauthParams(this.apiKey);
     const signature = generateSignature(type, url, params, this.apiSecret);
