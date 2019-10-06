@@ -348,7 +348,7 @@ var Gallery =
           var _getOutputFileURL = _asyncToGenerator(
             /*#__PURE__*/
             regeneratorRuntime.mark(function _callee6(jobId, outputId, format) {
-              var type, url, params, signature, newParams, outputParams;
+              var type, url, params, signature, newParams;
               return regeneratorRuntime.wrap(
                 function _callee6$(_context6) {
                   while (1) {
@@ -362,18 +362,24 @@ var Gallery =
                         params = buildOauthParams(this.apiKey);
                         signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
-                          _objectSpread({}, params, {
-                            format: format || "Raw"
-                          })
-                        );
-                        outputParams = setParams(
-                          _objectSpread({}, newParams, {
-                            oauth_signature: signature
-                          })
-                        );
-                        return _context6.abrupt("return", "".concat(url).concat(outputParams));
+                          _objectSpread(
+                            {},
+                            params,
+                            {
+                              format: format || "Raw"
+                            },
+                            {
+                              oauth_signature: signature
+                            }
+                          )
+                        ); // const outputParams = setParams({
+                        //   ...newParams,
+                        //   ...{ oauth_signature: signature }
+                        // });
 
-                      case 7:
+                        return _context6.abrupt("return", "".concat(url).concat(newParams));
+
+                      case 6:
                       case "end":
                         return _context6.stop();
                     }

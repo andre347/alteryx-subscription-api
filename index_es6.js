@@ -85,13 +85,14 @@ class Gallery {
     const signature = generateSignature(type, url, params, this.apiSecret);
     const newParams = setParams({
       ...params,
-      ...{ format: format || "Raw" }
-    });
-    const outputParams = setParams({
-      ...newParams,
+      ...{ format: format || "Raw" },
       ...{ oauth_signature: signature }
     });
-    return `${url}${outputParams}`;
+    // const outputParams = setParams({
+    //   ...newParams,
+    //   ...{ oauth_signature: signature }
+    // });
+    return `${url}${newParams}`;
   }
 }
 
