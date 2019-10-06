@@ -26,12 +26,7 @@ function _objectSpread(target) {
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
   } else {
     obj[key] = value;
   }
@@ -117,17 +112,9 @@ var Gallery =
                     switch ((_context.prev = _context.next)) {
                       case 0:
                         type = "GET";
-                        url = "".concat(
-                          this.apiLocation,
-                          "/workflows/subscription/?"
-                        );
+                        url = "".concat(this.apiLocation, "/workflows/subscription/?");
                         params = buildOauthParams(this.apiKey);
-                        signature = generateSignature(
-                          type,
-                          url,
-                          params,
-                          this.apiSecret
-                        );
+                        signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
                           _objectSpread({}, params, {
                             oauth_signature: signature
@@ -172,16 +159,9 @@ var Gallery =
                     switch ((_context2.prev = _context2.next)) {
                       case 0:
                         type = "GET";
-                        url = ""
-                          .concat(this.apiLocation, "/workflows/")
-                          .concat(id, "/questions/?");
+                        url = "".concat(this.apiLocation, "/workflows/").concat(id, "/questions/?");
                         params = buildOauthParams(this.apiKey);
-                        signature = generateSignature(
-                          type,
-                          url,
-                          params,
-                          this.apiSecret
-                        );
+                        signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
                           _objectSpread({}, params, {
                             oauth_signature: signature
@@ -226,16 +206,9 @@ var Gallery =
                     switch ((_context3.prev = _context3.next)) {
                       case 0:
                         type = "POST";
-                        url = ""
-                          .concat(this.apiLocation, "/workflows/")
-                          .concat(id, "/jobs/?");
+                        url = "".concat(this.apiLocation, "/workflows/").concat(id, "/jobs/?");
                         params = buildOauthParams(this.apiKey);
-                        signature = generateSignature(
-                          type,
-                          url,
-                          params,
-                          this.apiSecret
-                        );
+                        signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
                           _objectSpread({}, params, {
                             oauth_signature: signature
@@ -288,16 +261,9 @@ var Gallery =
                     switch ((_context4.prev = _context4.next)) {
                       case 0:
                         type = "GET";
-                        url = ""
-                          .concat(this.apiLocation, "/workflows/")
-                          .concat(id, "/jobs/?");
+                        url = "".concat(this.apiLocation, "/workflows/").concat(id, "/jobs/?");
                         params = buildOauthParams(this.apiKey);
-                        signature = generateSignature(
-                          type,
-                          url,
-                          params,
-                          this.apiSecret
-                        );
+                        signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
                           _objectSpread({}, params, {
                             oauth_signature: signature
@@ -342,16 +308,9 @@ var Gallery =
                     switch ((_context5.prev = _context5.next)) {
                       case 0:
                         type = "GET";
-                        url = ""
-                          .concat(this.apiLocation, "/jobs/")
-                          .concat(id, "/?");
+                        url = "".concat(this.apiLocation, "/jobs/").concat(id, "/?");
                         params = buildOauthParams(this.apiKey);
-                        signature = generateSignature(
-                          type,
-                          url,
-                          params,
-                          this.apiSecret
-                        );
+                        signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
                           _objectSpread({}, params, {
                             oauth_signature: signature
@@ -389,13 +348,7 @@ var Gallery =
           var _getOutputFileURL = _asyncToGenerator(
             /*#__PURE__*/
             regeneratorRuntime.mark(function _callee6(jobId, outputId, format) {
-              var type,
-                url,
-                params,
-                signature,
-                newParams,
-                outputParams,
-                response;
+              var type, url, params, signature, newParams, outputParams;
               return regeneratorRuntime.wrap(
                 function _callee6$(_context6) {
                   while (1) {
@@ -407,12 +360,7 @@ var Gallery =
                           .concat(jobId, "/output/")
                           .concat(outputId, "/?");
                         params = buildOauthParams(this.apiKey);
-                        signature = generateSignature(
-                          type,
-                          url,
-                          params,
-                          this.apiSecret
-                        );
+                        signature = generateSignature(type, url, params, this.apiSecret);
                         newParams = setParams(
                           _objectSpread({}, params, {
                             format: format || "Raw"
@@ -423,14 +371,9 @@ var Gallery =
                             oauth_signature: signature
                           })
                         );
-                        _context6.next = 8;
-                        return fetch(url + outputParams);
+                        return _context6.abrupt("return", "".concat(url).concat(outputParams));
 
-                      case 8:
-                        response = _context6.sent;
-                        return _context6.abrupt("return", response);
-
-                      case 10:
+                      case 7:
                       case "end":
                         return _context6.stop();
                     }
@@ -465,16 +408,9 @@ function buildOauthParams(apiKey) {
 }
 
 function generateSignature(httpMethod, url, parameters, secret) {
-  return _oauthSignature.default.generate(
-    httpMethod,
-    url,
-    parameters,
-    secret,
-    null,
-    {
-      encodeSignature: false
-    }
-  );
+  return _oauthSignature.default.generate(httpMethod, url, parameters, secret, null, {
+    encodeSignature: false
+  });
 }
 
 function setParams(params) {

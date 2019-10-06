@@ -91,8 +91,7 @@ class Gallery {
       ...newParams,
       ...{ oauth_signature: signature }
     });
-    const response = await fetch(url + outputParams);
-    return response;
+    return `${url}${outputParams}`;
   }
 }
 
